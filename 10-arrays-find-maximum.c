@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define SIZE 5
 // Practice exercise: scanning arrays to find an extreme value.
 // Goal: read 5 integers into an array, then find and print the largest value.
 // TODOs for you:
@@ -16,16 +16,28 @@
 //    Enter number 4: 2
 //    Largest value: 14 at position 2
 // Hint: start max_value with the first element before looping over the rest.
-#define SIZE 5
-
 int main(void) {
     int values[SIZE];
 
     // TODO: fill the array with user input using a for loop.
+    for (int i = 0; i < SIZE; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%d", &values[i]);
+    }
 
     // TODO: find the largest number and its index using another loop.
+    int max_value = values[0];
+    int max_index = 0;
+
+    for (int i = 1; i < SIZE; i++) {
+        if (values[i] > max_value) {
+            max_value = values[i];
+            max_index = i;
+        }
+    }
 
     // TODO: print the results in a clear sentence.
+    printf("Largest value: %d at position %d\n", max_value, max_index);
 
     return 0;
 }
